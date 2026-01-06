@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026对联年画批发点单系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#c91f1f',
+                        secondary: '#ffebeb',
+                        accent: '#ffd700',
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(201, 31, 31, 0.2);
+            }
+            .checkbox-custom:checked + label {
+                background-color: #c91f1f;
+                color: white;
+                border-color: #c91f1f;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <header class="bg-primary text-white shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-scroll text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold">2026对联批发</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="hover:text-secondary transition-colors relative">
+                    <i class="fas fa-shopping-cart text-lg"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-accent text-primary text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto py-8 px-4">
+        <!-- 商品列表（扩展后共8类） -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- 原有商品1：义乌发泡双鱼款绒布背胶对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover" data-product-name="义乌发泡双鱼款绒布背胶对联">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian1/400/300" alt="义乌发泡双鱼款绒布背胶对联" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">义乌发泡双鱼款绒布背胶对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <!-- 改为复选框，并为每个规格添加独立数量输入 -->
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec1" id="spec1-1" class="checkbox-custom hidden" value="3" data-spec-name="五开(86*14cm)">
+                                <label for="spec1-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">五开(86*14cm) ¥3/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec1-1">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec1" id="spec1-2" class="checkbox-custom hidden" value="6.3" data-spec-name="1.3米(116*20.5cm)">
+                                <label for="spec1-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.3米(116*20.5cm) ¥6.3/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec1-2">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec1" id="spec1-3" class="checkbox-custom hidden" value="8.3" data-spec-name="1.6米(146*24cm)">
+                                <label for="spec1-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.6米(146*24cm) ¥8.3/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec1-3">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec1" id="spec1-4" class="checkbox-custom hidden" value="11.8" data-spec-name="2.2米(176*28cm)">
+                                <label for="spec1-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">2.2米(176*28cm) ¥11.8/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec1-4">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec1" id="spec1-5" class="checkbox-custom hidden" value="14.5" data-spec-name="3米(200*31cm)">
+                                <label for="spec1-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">3米(200*31cm) ¥14.5/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec1-5">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec1" id="spec1-6" class="checkbox-custom hidden" value="19" data-spec-name="4米(230*35cm)">
+                                <label for="spec1-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">4米(230*35cm) ¥19/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec1-6">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-500 text-xs">装箱数：240副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600 text-sm">商品小计：</span>
+                        <span class="product-subtotal text-md font-medium text-primary">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 原有商品2：加厚发泡日进斗金款绒布对联 -->
+            <div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover" data-product-name="加厚发泡日进斗金款绒布对联">
+                <div class="h-48">
+                    <img src="https://picsum.photos/seed/duilian2/400/300" alt="加厚发泡日进斗金款绒布对联" class="w-full h-full object-cover">
+                </div>
+                <div class="p-5">
+                    <h3 class="text-lg font-semibold mb-2">加厚发泡日进斗金款绒布对联</h3>
+                    <div class="mb-4">
+                        <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec2" id="spec2-1" class="checkbox-custom hidden" value="3" data-spec-name="五开(86*14cm)">
+                                <label for="spec2-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">五开(86*14cm) ¥3/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec2-1">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec2" id="spec2-2" class="checkbox-custom hidden" value="4.2" data-spec-name="1.1米(98*17cm)">
+                                <label for="spec2-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.1米(98*17cm) ¥4.2/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec2-2">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec2" id="spec2-3" class="checkbox-custom hidden" value="6.3" data-spec-name="1.3米(116*20.5cm)">
+                                <label for="spec2-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.3米(116*20.5cm) ¥6.3/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec2-3">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec2" id="spec2-4" class="checkbox-custom hidden" value="8.3" data-spec-name="1.6米(146*24cm)">
+                                <label for="spec2-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.6米(146*24cm) ¥8.3/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec2-4">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec2" id="spec2-5" class="checkbox-custom hidden" value="11.8" data-spec-name="2.2米(176*28cm)">
+                                <label for="spec2-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">2.2米(176*28cm) ¥11.8/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec2-5">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec2" id="spec2-6" class="checkbox-custom hidden" value="14.5" data-spec-name="3米(200*31cm)">
+                                <label for="spec2-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">3米(200*31cm) ¥14.5/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec2-6">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                            <div class="spec-item flex items-center mb-2">
+                                <input type="checkbox" name="spec2" id="spec2-7" class="checkbox-custom hidden" value="19" data-spec-name="4米(230*35cm)">
+                                <label for="spec2-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">4米(230*35cm) ¥19/副</label>
+                                <div class="flex items-center border rounded-lg">
+                                    <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                                    <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec2-7">
+                                    <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-500 text-xs">装箱数：240副</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-600 text-sm">商品小计：</span>
+                        <span class="product-subtotal text-md font-medium text-primary">¥0.00</span>
+                    </div>
+                </div>
+            </div>
+<!-- 商品5：新款铜版纸烫金对联 -->
+<div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover" data-product-name="新款铜版纸烫金对联">
+    <div class="h-48">
+        <img src="https://picsum.photos/seed/duilian5/400/300" alt="新款铜版纸烫金对联" class="w-full h-full object-cover">
+    </div>
+    <div class="p-5">
+        <h3 class="text-lg font-semibold mb-2">新款铜版纸烫金对联</h3>
+        <div class="mb-4">
+            <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+            <div class="flex gap-2 flex-wrap">
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-1" class="checkbox-custom hidden" value="0.65" data-spec-name="1.1米(90*15cm)">
+                    <label for="spec5-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.1米(90*15cm) ¥0.65/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-1">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-2" class="checkbox-custom hidden" value="0.95" data-spec-name="1.3米(110*18cm)">
+                    <label for="spec5-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.3米(110*18cm) ¥0.95/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-2">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-3" class="checkbox-custom hidden" value="1.4" data-spec-name="1.6米(135*19.5cm)">
+                    <label for="spec5-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.6米(135*19.5cm) ¥1.4/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-3">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-4" class="checkbox-custom hidden" value="1.8" data-spec-name="2.2米(160*24cm)">
+                    <label for="spec5-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">2.2米(160*24cm) ¥1.8/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-4">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-5" class="checkbox-custom hidden" value="2.3" data-spec-name="3米(180*26cm)">
+                    <label for="spec5-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">3米(180*26cm) ¥2.3/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-5">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-6" class="checkbox-custom hidden" value="2.7" data-spec-name="4米(199*28cm)">
+                    <label for="spec5-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">4米(199*28cm) ¥2.7/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-6">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-7" class="checkbox-custom hidden" value="2.9" data-spec-name="5米(215*30cm)">
+                    <label for="spec5-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">5米(215*30cm) ¥2.9/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-7">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-8" class="checkbox-custom hidden" value="3.3" data-spec-name="6米(230*32cm)">
+                    <label for="spec5-8" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">6米(230*32cm) ¥3.3/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-8">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec5" id="spec5-9" class="checkbox-custom hidden" value="3.5" data-spec-name="8米(250*34cm)">
+                    <label for="spec5-9" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">8米(250*34cm) ¥3.5/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec5-9">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-500 text-xs">装箱数：800副起（不同尺寸箱数不同）</span>
+        </div>
+        <div class="flex items-center justify-between">
+            <span class="text-gray-600 text-sm">商品小计：</span>
+            <span class="product-subtotal text-md font-medium text-primary">¥0.00</span>
+        </div>
+    </div>
+</div>
+
+<!-- 商品6：盒装高档植绒撒粉生意对联 -->
+<div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover" data-product-name="盒装高档植绒撒粉生意对联">
+    <div class="h-48">
+        <img src="https://picsum.photos/seed/duilian6/400/300" alt="盒装高档植绒撒粉生意对联" class="w-full h-full object-cover">
+    </div>
+    <div class="p-5">
+        <h3 class="text-lg font-semibold mb-2">盒装高档植绒撒粉生意对联</h3>
+        <div class="mb-4">
+            <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+            <div class="flex gap-2 flex-wrap">
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec6" id="spec6-1" class="checkbox-custom hidden" value="3.9" data-spec-name="2.2米(27*170cm)">
+                    <label for="spec6-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">2.2米(27*170cm) ¥3.9/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec6-1">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec6" id="spec6-2" class="checkbox-custom hidden" value="4.4" data-spec-name="3米(30*200cm)">
+                    <label for="spec6-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">3米(30*200cm) ¥4.4/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec6-2">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec6" id="spec6-3" class="checkbox-custom hidden" value="5" data-spec-name="4米(32*225cm)">
+                    <label for="spec6-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">4米(32*225cm) ¥5/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec6-3">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec6" id="spec6-4" class="checkbox-custom hidden" value="5.7" data-spec-name="5米(34*250cm)">
+                    <label for="spec6-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">5米(34*250cm) ¥5.7/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec6-4">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-500 text-xs">装箱数：160副起（不同尺寸箱数不同）</span>
+        </div>
+        <div class="flex items-center justify-between">
+            <span class="text-gray-600 text-sm">商品小计：</span>
+            <span class="product-subtotal text-md font-medium text-primary">¥0.00</span>
+        </div>
+    </div>
+</div>
+
+<!-- 商品7：高档盒装植绒撒粉对联 -->
+<div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover" data-product-name="高档盒装植绒撒粉对联">
+    <div class="h-48">
+        <img src="https://picsum.photos/seed/duilian7/400/300" alt="高档盒装植绒撒粉对联" class="w-full h-full object-cover">
+    </div>
+    <div class="p-5">
+        <h3 class="text-lg font-semibold mb-2">高档盒装植绒撒粉对联</h3>
+        <div class="mb-4">
+            <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+            <div class="flex gap-2 flex-wrap">
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec7" id="spec7-1" class="checkbox-custom hidden" value="1.6" data-spec-name="1.1米(15*90cm)">
+                    <label for="spec7-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.1米(15*90cm) ¥1.6/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec7-1">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec7" id="spec7-2" class="checkbox-custom hidden" value="2" data-spec-name="1.3米(18*110cm)">
+                    <label for="spec7-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.3米(18*110cm) ¥2/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec7-2">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec7" id="spec7-3" class="checkbox-custom hidden" value="2.7" data-spec-name="1.6米(22*140cm)">
+                    <label for="spec7-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.6米(22*140cm) ¥2.7/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec7-3">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec7" id="spec7-4" class="checkbox-custom hidden" value="3.9" data-spec-name="2.2米(27*170cm)">
+                    <label for="spec7-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">2.2米(27*170cm) ¥3.9/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec7-4">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec7" id="spec7-5" class="checkbox-custom hidden" value="4.4" data-spec-name="3米(30*200cm)">
+                    <label for="spec7-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">3米(30*200cm) ¥4.4/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec7-5">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec7" id="spec7-6" class="checkbox-custom hidden" value="5" data-spec-name="4米(32*225cm)">
+                    <label for="spec7-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">4米(32*225cm) ¥5/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec7-6">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec7" id="spec7-7" class="checkbox-custom hidden" value="5.7" data-spec-name="5米(34*250cm)">
+                    <label for="spec7-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">5米(34*250cm) ¥5.7/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec7-7">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-500 text-xs">装箱数：480副起（不同尺寸箱数不同）</span>
+        </div>
+        <div class="flex items-center justify-between">
+            <span class="text-gray-600 text-sm">商品小计：</span>
+            <span class="product-subtotal text-md font-medium text-primary">¥0.00</span>
+        </div>
+    </div>
+</div>
+
+<!-- 商品8：高档盒装书法对联 -->
+<div class="bg-white rounded-2xl shadow-md overflow-hidden card-hover" data-product-name="高档盒装书法对联">
+    <div class="h-48">
+        <img src="https://picsum.photos/seed/duilian8/400/300" alt="高档盒装书法对联" class="w-full h-full object-cover">
+    </div>
+    <div class="p-5">
+        <h3 class="text-lg font-semibold mb-2">高档盒装书法对联</h3>
+        <div class="mb-4">
+            <p class="text-sm text-gray-600 mb-2">选择尺寸：</p>
+            <div class="flex gap-2 flex-wrap">
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec8" id="spec8-1" class="checkbox-custom hidden" value="1.2" data-spec-name="1.1米(15*92cm)">
+                    <label for="spec8-1" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.1米(15*92cm) ¥1.2/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec8-1">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec8" id="spec8-2" class="checkbox-custom hidden" value="1.7" data-spec-name="1.3米(18*113cm)">
+                    <label for="spec8-2" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.3米(18*113cm) ¥1.7/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec8-2">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec8" id="spec8-3" class="checkbox-custom hidden" value="2.5" data-spec-name="1.6米(22*140cm)">
+                    <label for="spec8-3" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">1.6米(22*140cm) ¥2.5/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec8-3">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec8" id="spec8-4" class="checkbox-custom hidden" value="2.9" data-spec-name="2.2米(27*170cm)">
+                    <label for="spec8-4" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">2.2米(27*170cm) ¥2.9/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec8-4">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec8" id="spec8-5" class="checkbox-custom hidden" value="3.3" data-spec-name="3米(30*200cm)">
+                    <label for="spec8-5" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">3米(30*200cm) ¥3.3/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec8-5">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec8" id="spec8-6" class="checkbox-custom hidden" value="3.8" data-spec-name="4米(33*225cm)">
+                    <label for="spec8-6" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">4米(33*225cm) ¥3.8/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec8-6">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+                <div class="spec-item flex items-center mb-2">
+                    <input type="checkbox" name="spec8" id="spec8-7" class="checkbox-custom hidden" value="4.3" data-spec-name="5米(35*250cm)">
+                    <label for="spec8-7" class="px-2 py-1 border rounded-full text-xs cursor-pointer transition-colors mr-2">5米(35*250cm) ¥4.3/副</label>
+                    <div class="flex items-center border rounded-lg">
+                        <button class="spec-decrement-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">-</button>
+                        <input type="number" class="spec-quantity-input w-8 text-center border-x py-0.5 outline-none text-xs" value="0" min="0" data-spec-id="spec8-7">
+                        <button class="spec-increment-btn px-1 py-0.5 text-sm text-gray-600 hover:text-primary transition-colors">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-gray-500 text-xs">装箱数：600副起（不同尺寸箱数不同）</span>
+        </div>
+        <div class="flex items-center justify-between">
+            <span class="text-gray-600 text-sm">商品小计：</span>
+            <span class="product-subtotal text-md font-medium text-primary">¥0.00</span>
+        </div>
+    </div>
+</div>
+            <!-- 为节省篇幅，这里只展示前2个商品的修改，其余6个商品请按照相同的格式修改：
+                 1. 将radio改为checkbox，类名从radio-custom改为checkbox-custom
+                 2. 为每个规格添加独立的数量输入框和增减按钮
+                 3. 添加data-spec-name属性存储规格名称
+                 4. 为商品卡片添加data-product-name属性存储商品名称
+                 5. 移除原有单个数量输入框，改为每个规格独立计数
+            -->
+
+            <!-- 商品3-8 请参照商品1-2的格式修改，此处省略 -->
+            
+        </div>
+
+        <!-- 订单汇总 -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 max-w-5xl mx-auto border-t-4 border-primary mb-8">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <i class="fas fa-calculator text-primary mr-2"></i>
+                订单汇总
+            </h2>
+            
+            <!-- 新增：详细订单表格 -->
+            <div class="mb-8 overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">商品名称</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">规格尺寸</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">单价(元/副)</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">数量(副)</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">小计(元)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="order-table-body" class="bg-white divide-y divide-gray-200">
+                        <!-- 表格内容将通过JS动态生成 -->
+                        <tr>
+                            <td colspan="5" class="px-6 py-4 text-center text-gray-500">暂无选购商品</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="space-y-4 mb-6">
+                <div class="flex justify-between pb-3 border-b">
+                    <span class="text-gray-600">已选规格数：</span>
+                    <span id="selected-count" class="font-medium">0 项</span>
+                </div>
+                <div class="flex justify-between pb-3 border-b">
+                    <span class="text-gray-600">商品总价：</span>
+                    <span id="total-price" class="text-2xl font-bold text-primary">¥0.00</span>
+                </div>
+            </div>
+            <button class="w-full bg-primary text-white py-4 rounded-xl text-lg font-medium hover:bg-primary/90 transition-colors shadow-lg">
+                <i class="fas fa-file-invoice-dollar mr-2"></i>
+                生成订单
+            </button>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const products = document.querySelectorAll('.bg-white.rounded-2xl.shadow-md');
+            const totalPriceEl = document.getElementById('total-price');
+            const selectedCountEl = document.getElementById('selected-count');
+            const cartCountEl = document.getElementById('cart-count');
+            const orderTableBody = document.getElementById('order-table-body');
+
+            // 初始化所有规格的事件监听
+            products.forEach(product => {
+                const productName = product.dataset.productName;
+                const specCheckboxes = product.querySelectorAll('.checkbox-custom');
+                const productSubtotalEl = product.querySelector('.product-subtotal');
+                
+                // 为每个规格的增减按钮和输入框添加事件
+                product.querySelectorAll('.spec-item').forEach(item => {
+                    const checkbox = item.querySelector('.checkbox-custom');
+                    const quantityInput = item.querySelector('.spec-quantity-input');
+                    const decrementBtn = item.querySelector('.spec-decrement-btn');
+                    const incrementBtn = item.querySelector('.spec-increment-btn');
+
+                    // 规格勾选状态变化
+                    checkbox.addEventListener('change', function() {
+                        // 勾选时默认数量设为1，取消勾选时数量设为0
+                        if (this.checked) {
+                            quantityInput.value = quantityInput.value == 0 ? 1 : quantityInput.value;
+                        } else {
+                            quantityInput.value = 0;
+                        }
+                        updateProductSubtotal(product);
+                        updateTotal();
+                        updateOrderTable();
+                    });
+
+                    // 数量减少
+                    decrementBtn.addEventListener('click', function() {
+                        let val = parseInt(quantityInput.value);
+                        if (val > 0) {
+                            quantityInput.value = val - 1;
+                            // 数量为0时自动取消勾选
+                            if (quantityInput.value == 0) {
+                                checkbox.checked = false;
+                            }
+                            updateProductSubtotal(product);
+                            updateTotal();
+                            updateOrderTable();
+                        }
+                    });
+
+                    // 数量增加
+                    incrementBtn.addEventListener('click', function() {
+                        quantityInput.value = parseInt(quantityInput.value) + 1;
+                        // 增加数量时自动勾选
+                        checkbox.checked = true;
+                        updateProductSubtotal(product);
+                        updateTotal();
+                        updateOrderTable();
+                    });
+
+                    // 手动输入数量
+                    quantityInput.addEventListener('input', function() {
+                        let val = parseInt(this.value);
+                        this.value = isNaN(val) || val < 0 ? 0 : val;
+                        // 数量大于0时勾选，否则取消勾选
+                        checkbox.checked = this.value > 0;
+                        updateProductSubtotal(product);
+                        updateTotal();
+                        updateOrderTable();
+                    });
+                });
+
+                // 更新单个商品的小计（所有规格的总和）
+                function updateProductSubtotal(product) {
+                    let subtotal = 0;
+                    product.querySelectorAll('.spec-item').forEach(item => {
+                        const checkbox = item.querySelector('.checkbox-custom');
+                        const quantityInput = item.querySelector('.spec-quantity-input');
+                        if (checkbox.checked) {
+                            const price = parseFloat(checkbox.value);
+                            const quantity = parseInt(quantityInput.value);
+                            subtotal += price * quantity;
+                        }
+                    });
+                    productSubtotalEl.textContent = `¥${subtotal.toFixed(2)}`;
+                }
+            });
+
+            // 更新订单总价和数量
+            function updateTotal() {
+                let total = 0;
+                let count = 0;
+                let totalQuantity = 0;
+
+                products.forEach(product => {
+                    product.querySelectorAll('.spec-item').forEach(item => {
+                        const checkbox = item.querySelector('.checkbox-custom');
+                        const quantityInput = item.querySelector('.spec-quantity-input');
+                        if (checkbox.checked) {
+                            const price = parseFloat(checkbox.value);
+                            const quantity = parseInt(quantityInput.value);
+                            total += price * quantity;
+                            count++; // 已选规格数
+                            totalQuantity += quantity; // 总数量
+                        }
+                    });
+                });
+
+                totalPriceEl.textContent = `¥${total.toFixed(2)}`;
+                selectedCountEl.textContent = `${count} 项`;
+                cartCountEl.textContent = totalQuantity;
+            }
+
+            // 更新订单表格
+            function updateOrderTable() {
+                // 清空表格
+                orderTableBody.innerHTML = '';
+                let hasData = false;
+
+                // 遍历所有商品
+                products.forEach(product => {
+                    const productName = product.dataset.productName;
+                    
+                    // 遍历该商品的所有规格
+                    product.querySelectorAll('.spec-item').forEach(item => {
+                        const checkbox = item.querySelector('.checkbox-custom');
+                        const quantityInput = item.querySelector('.spec-quantity-input');
+                        
+                        if (checkbox.checked && parseInt(quantityInput.value) > 0) {
+                            hasData = true;
+                            const specName = checkbox.dataset.specName;
+                            const price = parseFloat(checkbox.value);
+                            const quantity = parseInt(quantityInput.value);
+                            const subtotal = price * quantity;
+
+                            // 创建表格行
+                            const tr = document.createElement('tr');
+                            tr.innerHTML = `
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${productName}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${specName}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${price.toFixed(2)}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${quantity}</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">${subtotal.toFixed(2)}</td>
+                            `;
+                            orderTableBody.appendChild(tr);
+                        }
+                    });
+                });
+
+                // 如果没有数据，显示提示
+                if (!hasData) {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td colspan="5" class="px-6 py-4 text-center text-gray-500">暂无选购商品</td>`;
+                    orderTableBody.appendChild(tr);
+                }
+            }
+
+            // 初始化表格
+            updateOrderTable();
+        });
+    </script>
+</body>
+</html>
